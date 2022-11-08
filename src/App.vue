@@ -1,17 +1,16 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Listing />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Listing from '@/components/pages/Listing';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Listing,
   }
 }
 </script>
@@ -26,3 +25,6 @@ export default {
   margin-top: 60px;
 }
 </style>
+
+<style src='primevue/resources/themes/saga-blue/theme.css'></style>
+<style src='primevue/resources/primevue.min.css'></style>

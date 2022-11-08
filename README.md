@@ -1,4 +1,4 @@
-# eqt
+This project is structured as Atomic Design. Can be found here [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/)
 
 ## Project setup
 ```
@@ -19,6 +19,3 @@ npm run build
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
