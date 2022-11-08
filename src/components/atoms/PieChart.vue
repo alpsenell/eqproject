@@ -27,7 +27,7 @@ export default {
   props: {
     chartId: {
       type: String,
-      default: 'bar-chart'
+      default: 'pie-chart'
     },
     datasetIdKey: {
       type: String,
@@ -52,24 +52,40 @@ export default {
     plugins: {
       type: Object,
       default: () => {}
-    }
+    },
+    labels: {
+      type: Array,
+      default: () => []
+    },
+    data: {
+      type: Array,
+      default: () => []
+    },
+    bgColors: {
+      type: Array,
+      default: () => []
+    },
   },
   data() {
     return {
-      chartData: {
-        labels: ['VueJs', 'EmberJs', 'ReactJs', 'AngularJs'],
-        datasets: [
-          {
-            backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'],
-            data: [40, 20, 80, 10]
-          }
-        ]
-      },
       chartOptions: {
         responsive: true,
         maintainAspectRatio: false
       }
     }
-  }
+  },
+  computed: {
+    chartData() {
+      return {
+        labels: this.labels,
+        datasets: [
+          {
+            backgroundColor: this.bgColors,
+            data: this.data
+          }
+        ]
+      }
+    }
+  },
 }
 </script>

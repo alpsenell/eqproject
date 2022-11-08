@@ -1,6 +1,7 @@
 <template>
   <Button
     class="bg-blue-500"
+    :class="extraClass"
     :label="label"
     @click="$emit('click')"
   />
@@ -15,6 +16,10 @@ export default {
   },
   props: {
     label: {
+      type: String,
+      default: ''
+    },
+    extraClass: {
       type: String,
       default: ''
     },

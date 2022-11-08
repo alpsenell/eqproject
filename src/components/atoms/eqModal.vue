@@ -2,7 +2,9 @@
   <Dialog
     :header="header"
     :visible="visible"
+    closeOnEscape
     :containerStyle="{ width: '50vw' }"
+    @update:visible="$emit('hide')"
   >
     <slot />
   </Dialog>

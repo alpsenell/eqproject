@@ -1,5 +1,5 @@
 <template>
-  <div class="flex">
+  <div class="flex px-16">
     <eq-button
       label="Add / Update"
       @click="$emit('openModal')"

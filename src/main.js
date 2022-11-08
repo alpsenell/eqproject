@@ -5,6 +5,7 @@ import PrimeVue from 'primevue/config';
 import axios from 'axios';
 
 import './assets/tailwind.css'
+import 'primeicons/primeicons.css';
 
 Vue.use(PrimeVue);
 

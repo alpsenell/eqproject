@@ -51,4 +51,8 @@ export default {
 .p-inputnumber-input {
   width: 100%;
 }
+
+.p-inputnumber-button {
+  background-color: #2196F3 !important;
+}
 </style>

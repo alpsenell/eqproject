@@ -1,9 +1,15 @@
 <template>
   <Listing
-    :coins="coins"
+    :coins="filteredCoins"
+    :added-coins="addedCoins"
     :modal-visibility="modalVisibility"
+    :search-keyword="searchKeyword"
     @openModal="onOpenModal"
+    @hideModal="onHideModal"
     @addCoin="onAddCoin"
+    @removeCoin="onRemoveCoin"
+    @refresh="fetchCoins"
+    @searchCoin="onSearchCoin"
   />
 </template>
 
@@ -18,12 +24,21 @@ export default {
   data() {
     return {
       modalVisibility: false,
+      searchKeyword: '',
     }
   },
   computed: {
     ...mapState('LISTING_STORE', [
       'coins',
+      'addedCoins',
     ]),
+    filteredCoins() {
+      if (this.searchKeyword) {
+        return this.coins.filter(coin => coin.symbol.toLowerCase().includes(this.searchKeyword.toLowerCase()));
+      }
+
+      return this.coins;
+    }
   },
   mounted() {
     this.fetchCoins();
@@ -34,6 +49,7 @@ export default {
     ]),
     ...mapMutations('LISTING_STORE', [
       'addCoin',
+      'removeCoin',
     ]),
     onOpenModal() {
       this.modalVisibility = true;
@@ -48,6 +64,15 @@ export default {
       };
 
       this.addCoin(modifiedCoin);
+    },
+    onRemoveCoin(coin) {
+      this.removeCoin(coin);
+    },
+    onHideModal() {
+      this.modalVisibility = false;
+    },
+    onSearchCoin(value) {
+      this.searchKeyword = value;
     },
   }
 }
